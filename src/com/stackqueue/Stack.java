@@ -27,6 +27,31 @@ public class Stack {
 		head = newNode;
 	}
 	
+	/**this method is used to pop the elements from the stack
+	 * @return
+	 */
+	public int pop() {
+		if(head == null) {
+			System.out.println("Stack is empty!!");
+			return 0;
+		}
+		Node temp = head;
+		head = temp.next;
+		return temp.data;
+	}
+	
+	/**this method is used to peak the elements from the stack
+	 * @return
+	 */
+	public int peek() {
+		if(head == null) {
+			System.out.println("Stack is empty!!");
+			return 0;
+		}
+		Node temp = head;
+		return temp.data;
+	}
+	
 	/**
 	 * this method is created to display the stack
 	 */

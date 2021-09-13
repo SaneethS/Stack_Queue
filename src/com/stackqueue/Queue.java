@@ -41,8 +41,21 @@ private Node head;
 		return isAdded;
 	}
 	
+	/**this method is used to deque the queue
+	 * @return
+	 */
+	public int dequeue() {
+		if(head == null) {
+			System.out.println("Queue is empty!!");
+			return 0;
+		}
+		Node temp = head;
+		head = temp.next;
+		return temp.data;
+	}
+	
 	/**
-	 * this method is used to diaply the queue
+	 * this method is used to display the queue
 	 */
 	public void print() {
 		Node temp = head;

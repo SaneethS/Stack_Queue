@@ -16,6 +16,16 @@ public class Main {
 		
 		
 		stack.print();
+		
+		System.out.println("");
+		
+		Queue queue = new Queue();
+		
+		queue.enqueue(56);
+		queue.enqueue(30);
+		queue.enqueue(70);
+		
+		queue.print();
 	}
 	
 

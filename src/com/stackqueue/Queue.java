@@ -5,67 +5,32 @@ package com.stackqueue;
  * @author saneeths
  *
  */
-public class Queue {
-private Node head;
+public class Queue<T> {
+	private Node<T> head;
 	
-	private class Node {
-		int data;
-		Node next;
-		
-		Node(int data) {
-			this.data = data;
-			next = null;
-		}
-	}
+	LinkedList<T> linkedList = new LinkedList<>();
 	
 	/**this method is used to add elements to the queue hence is enqueue
 	 * @param data
-	 * @return
 	 */
-	public boolean enqueue(int data) {
-		boolean isAdded  = false;
-		Node newNode = new Node(data);
-		if(head == null) {
-			head = newNode;
-			isAdded  =true;
-		}else {
-			Node temp = head;
-			
-			while(temp.next != null) {
-				temp = temp.next;
-			}
-			
-			temp.next  = newNode;
-			isAdded = true;
-		}
-		return isAdded;
+	public boolean enqueue(T data) {
+		return linkedList.append(data);
 	}
 	
 	/**this method is used to deque the queue
-	 * @return
 	 */
-	public int dequeue() {
-		if(head == null) {
-			System.out.println("Queue is empty!!");
-			return 0;
-		}
-		Node temp = head;
-		head = temp.next;
-		return temp.data;
+	public T dequeue() {
+		return linkedList.pop();
 	}
 	
 	/**
 	 * this method is used to display the queue
 	 */
-	public void print() {
-		Node temp = head;
+	public void printQueue() {
 		
 		System.out.println("Queue : ");
+		linkedList.print();
 		
-		while(temp != null) {
-			System.out.print(temp.data+" ");
-			temp = temp.next;
-		}
 	}
 	
 }

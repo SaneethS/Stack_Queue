@@ -4,65 +4,45 @@ package com.stackqueue;
  * @author saneeths
  *
  */
-public class Stack {
+public class Stack<T> {
 	
-	private Node head;
+	private Node<T> head;
 	
-	private class Node {
-		int data;
-		Node next;
-		
-		Node(int data) {
-			this.data = data;
-			next = null;
-		}
-	}
+	LinkedList<T> linkedList = new LinkedList<>();
 	
 	/**this method is created to push the values to the stack 
 	 * @param data
 	 */
-	public void push(int data) {
-		Node newNode = new Node(data);
-		newNode.next = head;
-		head = newNode;
+	public void push(T data) {
+		linkedList.push(data);
 	}
 	
 	/**this method is used to pop the elements from the stack
-	 * @return
 	 */
-	public int pop() {
-		if(head == null) {
-			System.out.println("Stack is empty!!");
-			return 0;
-		}
-		Node temp = head;
-		head = temp.next;
-		return temp.data;
+	public T pop() {
+		return linkedList.pop();
 	}
 	
 	/**this method is used to peak the elements from the stack
 	 * @return
 	 */
-	public int peek() {
+	public T peek() {
 		if(head == null) {
 			System.out.println("Stack is empty!!");
-			return 0;
+			return null;
 		}
-		Node temp = head;
+		Node<T> temp = head;
 		return temp.data;
 	}
 	
 	/**
 	 * this method is created to display the stack
 	 */
-	public void print() {
-		Node temp = head;
+	public void printStack() {
 		
 		System.out.println("Stack : ");
+		linkedList.print();
 		
-		while(temp != null) {
-			System.out.println(temp.data);
-			temp = temp.next;
-		}
+		
 	}
 }
